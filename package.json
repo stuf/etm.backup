@@ -1,0 +1,16 @@
+{
+  "name": "etm.backup",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "nodemon": "^1.17.1",
+    "ramda": "^0.25.0",
+    "sanctuary": "^0.14.1",
+    "sanctuary-def": "^0.14.0",
+    "shelljs": "^0.8.1"
+  }
+}
