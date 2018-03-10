@@ -18,17 +18,14 @@ const required =
 const checkRequired =
   hasAll => req => hasAll && !!sh.which(req);
 
-//
-
-//    toMarkdownList :: List String -> List String
+//#   toMarkdownList :: List String -> List String
 const toMarkdownList =
   S.map(S.concat(' - '));
 
-//    requiredToolsError :: Maybe a -> Either l r
+//#   requiredToolsError :: Maybe a -> Either l r
 const requiredToolsError =
   S.maybeToEither();
 
-//
 
 //#   failure :: String -> Undefined
 const failure =
