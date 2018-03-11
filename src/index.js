@@ -11,39 +11,27 @@ const falsyToUndefined = x => x || undefined;
 //#   required :: List String
 //.
 //. List of required tools to be installed and in path.
-const required =
-  ['ddrescue'];
+const required = ['ddrescue', 'isoinfo', 'safecopy'];
 
 //#   checkRequired :: Boolean -> String -> Boolean
-const checkRequired =
-  hasAll => req => hasAll && !!sh.which(req);
+const checkRequired = hasAll => req => hasAll && !!sh.which(req);
 
 //#   toMarkdownList :: List String -> List String
-const toMarkdownList =
-  S.map(S.concat(' - '));
-
-//#   requiredToolsError :: Maybe a -> Either l r
-const requiredToolsError =
-  S.maybeToEither();
-
+const toMarkdownList = S.map(S.concat(' - '));
 
 //#   failure :: String -> Undefined
 const failure =
-  xs => {
-    process.stderr.write(`${red}ERR:${reset} ${xs}\n`);
-  };
+  xs => { process.stderr.write(`${red}ERR:${reset} ${xs}\n`);
+          process.exit(1); };
 
 //#   success :: String -> Undefined
 const success =
-  xs => {
-    process.stdout.write(`${green}==>${reset} ${xs}\n`);
-  };
+  xs => { process.stdout.write(`${green}==>${reset} ${xs}\n`); };
 
 //
 
 //#   ls :: Array String -> String
-const ls =
-  S.joinWith('\n');
+const ls = S.joinWith('\n');
 
 S.pipe([S.reduce(checkRequired, true),
         falsyToUndefined,
